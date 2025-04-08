@@ -15,8 +15,7 @@ app = Flask(__name__)
 # Allow requests from specific frontend domain
 CORS(app, resources={r"/*": {"origins": [
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://city-explorertravel-agent.vercel.app/"
+    "https://city-explorertravel-agent.vercel.app"
 ]}})
 
 
