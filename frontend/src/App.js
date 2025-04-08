@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
@@ -29,6 +29,24 @@ function App() {
 
   const handleInputChange = (e) => setCity(e.target.value);
 
+  const App = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/api/endpoint`
+          );
+          setData(response.data.message);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      fetchData();
+    }, []);
+  };
   const fetchCityData = async () => {
     if (!city.trim()) {
       setError("Please enter a city name");
