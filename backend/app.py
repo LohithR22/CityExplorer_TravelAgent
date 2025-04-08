@@ -12,13 +12,12 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 
 app = Flask(__name__)
-CORS(app, resources={
-    r"/api/*": {
-        "origins": ["http://localhost:3000"],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"]
-    }
-})
+# Allow requests from specific frontend domain
+CORS(app, resources={r"/*": {"origins": "https://city-explorertravel-agent.vercel.app/"}})
+
+@app.route('/api/endpoint', methods=['GET'])
+def example_endpoint():
+    return {"message": "Hello from Flask!"}
 
 # Initialize Groq client
 client = Groq(api_key=GROQ_API_KEY)

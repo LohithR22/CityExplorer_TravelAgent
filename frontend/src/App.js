@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Add useEffect here
 import axios from "axios";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
@@ -24,6 +24,16 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [mapCenter, setMapCenter] = useState([20.5937, 78.9629]);
   const [mapZoom, setMapZoom] = useState(4);
+
+  // Add the useEffect hook for the API call
+  useEffect(() => {
+    const API_URL = process.env.REACT_APP_API_URL;
+
+    fetch(`${API_URL}/api/endpoint`)
+      .then((response) => response.json())
+      .then((data) => console.log(data)) // Log the response to verify
+      .catch((error) => console.error("Error:", error));
+  }, []); // Empty dependency array ensures this runs only once when the component mounts
 
   const handleInputChange = (e) => setCity(e.target.value);
 
