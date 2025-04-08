@@ -2,6 +2,7 @@
 
 CitySight Explorer is a personal project built using React (frontend) and Flask (backend). It allows users to explore any city by fetching an AI-generated overview, current weather, and top sightseeing locations categorized across history, nature, spirituality, and culture.
 
+Checkout the hosted link here - https://city-explorertravel-agent.vercel.app/
 ---
 
 ## ✨ Features
@@ -29,8 +30,8 @@ CitySight Explorer is a personal project built using React (frontend) and Flask 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/citysight-explorer.git
-cd citysight-explorer
+git clone https://github.com/LohithR22/CityExplorer_TravelAgent.git
+cd CityExplorer_TravelAgent
 ```
 
 ---
@@ -87,7 +88,7 @@ REACT_APP_API_URL=http://localhost:5000
 
 | Layer    | Platform | URL Example                          |
 | -------- | -------- | ------------------------------------ |
-| Frontend | Vercel   | `https://city-explorer.netlify.app`  |
+| Frontend | Vercel   | `https://vercel.com`                 |
 | Backend  | Render   | `https://city-explorer.onrender.com` |
 
 ---
