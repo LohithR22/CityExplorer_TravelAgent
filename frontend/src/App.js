@@ -29,25 +29,6 @@ function App() {
 
   const handleInputChange = (e) => setCity(e.target.value);
 
-  const App = () => {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/api/endpoint`
-          );
-          console.log("hello");
-          setData(response.data.message);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-
-      fetchData();
-    }, []);
-  };
   const fetchCityData = async () => {
     if (!city.trim()) {
       setError("Please enter a city name");
@@ -58,13 +39,14 @@ function App() {
     setError("");
 
     try {
+      console.log(1);
       const response = await axios.get(
         `${API_URL}/api/sightseeing?city=${city}`
       ); // Use API_URL here
       setCityInfo(response.data.city_info);
       setWeatherInfo(response.data.weather_info);
       setPlaces(response.data.places);
-
+      console.log(response.data.places);
       if (response.data.places.length > 0) {
         const firstPlace = response.data.places[0];
         setMapCenter([
