@@ -38,6 +38,7 @@ function App() {
           const response = await axios.get(
             `${process.env.REACT_APP_API_URL}/api/endpoint`
           );
+          console.log("hello");
           setData(response.data.message);
         } catch (error) {
           console.error("Error fetching data:", error);
