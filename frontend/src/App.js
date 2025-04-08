@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
@@ -215,6 +215,23 @@ function App() {
         </div>
       )}
       {error && <div className="error-message">{error}</div>}
+      {/* Add Footer */}
+      <footer className="app-footer">
+        <p>
+          <a
+            href="https://github.com/LohithR22"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-link"
+          > <span class="creator-name">Created by Lohith R Gowda</span>
+            <img
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              alt="GitHub Logo"
+              className="github-logo"
+            />
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }

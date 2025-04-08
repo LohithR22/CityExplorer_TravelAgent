@@ -356,6 +356,7 @@ body {
   visibility: hidden;
   position: absolute;
   bottom: 100%; /* Show tooltip above the place name*/
+  left: 30%;
   /* transform: translateX(-50%) translateY(-10px); */
   display: flex;
   justify-content: center;
@@ -425,7 +426,6 @@ body {
   align-items: center;
   gap: 5px;
 }
-
 
 @media (max-width: 1200px) {
   .content-container {
@@ -817,3 +817,44 @@ p {
   color: black;
 }
 
+/* Footer styles */
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+.app-footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+.github-logo {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.creator-name {
+  font-size: 1rem;
+  color: #f1c40f;
+}
