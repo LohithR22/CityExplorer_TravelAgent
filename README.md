@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# 🌍 CitySight Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CitySight Explorer is a personal project built using React (frontend) and Flask (backend). It allows users to explore any city by fetching an AI-generated overview, current weather, and top sightseeing locations categorized across history, nature, spirituality, and culture.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- 🌆 AI-generated city overview using Groq's LLaMA model
+- 🌤️ Real-time weather using OpenWeatherMap API
+- 📍 Categorized sightseeing places with coordinates
+- 🗺️ Ready to integrate with interactive maps
+- 🔄 CORS-enabled backend for easy React communication
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **Frontend**: React (host on Netlify)
+- **Backend**: Flask (host on Render)
+- **AI API**: Groq LLaMA-3
+- **Weather API**: OpenWeatherMap
+- **Geocoding**: OpenStreetMap (Nominatim)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 Local Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the repo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/your-username/citysight-explorer.git
+cd citysight-explorer
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 2. Backend Setup (Flask)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### a. Create virtual environment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### b. Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+pip install -r requirements.txt
+```
 
-## Learn More
+#### c. Create a `.env` file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```env
+GROQ_API_KEY=your_groq_api_key
+WEATHER_API_KEY=your_openweather_api_key
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### d. Run Flask server
 
-### Code Splitting
+```bash
+python app.py
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The API runs at: `http://localhost:5000/api/sightseeing?city=<input>`
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3. Frontend Setup (React)
 
-### Making a Progressive Web App
+```bash
+cd frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Set the API base URL to your backend in `.env`:
 
-### Advanced Configuration
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🌐 Free Hosting Suggestions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Layer    | Platform | URL Example                          |
+| -------- | -------- | ------------------------------------ |
+| Frontend | Vercel   | `https://city-explorer.netlify.app`  |
+| Backend  | Render   | `https://city-explorer.onrender.com` |
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📌 API Endpoint
+
+```
+GET /api/sightseeing?city=CityName
+```
+
+**Response:**
+
+```json
+{
+  "city_info": "...",
+  "weather_info": "...",
+  "places": [
+    {
+      "name": "Red Fort",
+      "description": "...",
+      "category": "HISTORICAL PLACES",
+      "latitude": "...",
+      "longitude": "..."
+    }
+  ]
+}
+```
+
+---
+
+## 🧠 Credits
+
+- AI: [Groq LLaMA-3](https://groq.com)
+- Weather: [OpenWeatherMap](https://openweathermap.org)
+- Geocoding: [OpenStreetMap](https://nominatim.org)
+
+---
+
+## 📜 License
+
+MIT License — Free to use and modify for personal/non-commercial projects.
